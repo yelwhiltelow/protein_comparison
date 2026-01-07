@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Homepage Layout</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- 상단 버튼 영역 -->
+    <div class="top-bar" id="topBar">
+      <div class="top-item">
+        <div class="logo"></div>
+      </div>
+      <div class="top-item">
+        <button class="top-button">Button 1</button>
+      </div>
+      <div class="top-item">
+        <button class="top-button">Button 2</button>
+      </div>
+      <div class="top-item">
+        <button class="top-button">Button 3</button>
+      </div>
+    </div>
+
+    <!-- 검색 영역 (중앙 정렬 기준 wrapper 포함) -->
+    <div class="main" id="mainArea">
+      <div class="search-wrapper" id="searchWrapper">
+        <div class="search-container" id="searchBox">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="검색어를 입력하세요"
+          />
+          <button class="search-button" id="searchButton">
+            검색
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

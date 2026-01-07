@@ -1,0 +1,38 @@
+[
+    {
+      "name": "DNA Gyrase",
+      "description": "DNA Gyrase는 ATP를 에너지원으로 사용하여 DNA에 음성 초나선(negative supercoiling)을 도입하는 세균 특이적 효소이다. DNA는 세포 내에 저장되기 위해 강하게 꼬여 있는데, 이러한 위상학적 상태는 복제와 전사가 일어날 때 물리적 장애가 된다. DNA Gyrase가 만들어내는 음성 초나선은 DNA를 상대적으로 느슨한 상태로 유지하여 이중 가닥이 쉽게 풀리도록 하며, 그 결과 DNA 복제와 전사가 원활하게 진행될 수 있다. 특히 세균은 매우 응축된 DNA를 가지므로, DNA Gyrase의 기능은 생존과 증식에 필수적이다. 또한 DNA Gyrase는 단순히 꼬임을 완화하는 다른 토포아이소머레이즈와 달리, 에너지를 소비해 새로운 꼬임을 적극적으로 도입한다는 점에서 독특하다. 이러한 이유로 DNA Gyrase는 세균의 유전자 발현과 증식의 기반을 제공하며, 병원성 세균이 숙주 내에서 질병을 유발하는 과정에도 간접적으로 관여하는 중요한 단백질이다.",
+  
+      "comparison": {
+        "comparison_target": {
+          "name": "380 vs 804",
+          "description": "작은 단백질을 큰 단백질 구조에 맞춘 것"
+        },
+        "alignment_score": {
+          "value": "553",
+          "description": "매우 높은 점수로 두 대상이 서열이나 구성 면에서 확실한 연관성이 있음"
+        },
+        "aligned_atom_count": {
+          "value": "1546개",
+          "description": "꽤 많은 양의 원자가 서로 대응됨"
+        },
+        "rmsd": {
+          "value": "19.605 Å",
+          "description": "매우 높은 오차로 평균 거리가 약 20옹스트롬"
+        }
+      },
+  
+      "binding_analysis": {
+        "binding_affinity": {
+          "wild_type": "-7.7 kcal/mol",
+          "mutant": "-10.7 kcal/mol",
+          "change": "-3.0 kcal/mol 증가"
+        },
+        "ki": {
+          "wild_type": "2.27 μM",
+          "mutant": "14.35 nM",
+          "change": "약 158배 감소"
+        }
+      }
+    }
+  ]
