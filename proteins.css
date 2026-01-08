@@ -1,0 +1,96 @@
+@import url("common.css");
+
+/* =========================
+   검색 영역 (Proteins 전용)
+   ========================= */
+
+.search-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  /* ✅ 추가된 부분 (핵심 수정) */
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  width: 60%;
+  max-width: 520px;
+  transition: margin 0.3s ease;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-right: none;
+  outline: none;
+}
+
+.search-button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: 1px solid #333;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* 버튼 영역 아래로 붙은 상태 */
+.search--attached {
+  margin-top: 16px;
+}
+
+/* =========================
+   검색 결과 영역
+   ========================= */
+
+#resultArea {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+/* 검색 실패 메시지 */
+.no-result {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* =========================
+   표 스타일
+   ========================= */
+
+/* 표만 중앙 정렬 */
+.result-table {
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid #333;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+/* =========================
+   텍스트 영역
+   ========================= */
+
+/* 텍스트는 좌측 정렬 유지 */
+.result-text {
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* 소제목 스타일 */
+.section-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 40px 0 16px;
+}

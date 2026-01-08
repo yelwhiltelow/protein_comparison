@@ -3,62 +3,68 @@ const button = document.getElementById("searchButton");
 const searchWrapper = document.getElementById("searchWrapper");
 const searchBox = document.getElementById("searchBox");
 const topBar = document.getElementById("topBar");
+const mainArea = document.getElementById("mainArea");
 
-// 결과 출력 영역
+/* 결과 영역 (성공 시만 사용) */
 const resultArea = document.createElement("div");
 resultArea.id = "resultArea";
-resultArea.style.width = "100%";
-resultArea.style.maxWidth = "900px";
-resultArea.style.margin = "40px auto";
-document.querySelector(".page").appendChild(resultArea);
+mainArea.appendChild(resultArea);
+
+/* 검색 실패 메시지 (검색창 아래 고정) */
+const noResultMsg = document.createElement("div");
+noResultMsg.className = "no-result";
+noResultMsg.textContent = "일치하는 단백질 정보가 없습니다";
+noResultMsg.style.display = "none";
+searchWrapper.appendChild(noResultMsg);
 
 let dataCache = [];
 
-// JSON 로드
+/* JSON 로드 */
 fetch("data.json")
   .then(res => res.json())
   .then(data => {
-    // ✅ 배열 보정 (핵심)
-    if (Array.isArray(data)) {
-      dataCache = data;
-    } else {
-      dataCache = [data];
-    }
-
-    console.log("Loaded data:", dataCache);
-  })
-  .catch(err => {
-    console.error("JSON 로드 실패:", err);
+    dataCache = Array.isArray(data) ? data : [data];
   });
 
-function handleSearch() {
-  const keyword = input.value.trim().toLowerCase();
+function resetToCenter() {
+  mainArea.appendChild(searchWrapper);
+  searchBox.classList.remove("search--attached");
   resultArea.innerHTML = "";
+  noResultMsg.style.display = "none";
+}
 
-  if (!keyword) return;
+function handleSearch() {
+  const keyword = input.value.trim();
 
-  const match = dataCache.find(
-    item => item.name.toLowerCase() === keyword
-  );
-
-  if (!match) {
-    resultArea.innerHTML = "<p>일치하는 단백질 정보가 없습니다.</p>";
+  /* 빈 입력 */
+  if (keyword === "") {
+    resetToCenter();
     return;
   }
 
-  // 검색창 위치 이동
+  const match = dataCache.find(
+    item => item.name.toLowerCase() === keyword.toLowerCase()
+  );
+
+  /* ❌ 검색 실패 */
+  if (!match) {
+    resetToCenter();
+    noResultMsg.style.display = "block";
+    return;
+  }
+
+  /* ✅ 검색 성공 */
+  noResultMsg.style.display = "none";
   topBar.after(searchWrapper);
   searchBox.classList.add("search--attached");
 
   resultArea.innerHTML = `
-    <h2>About Protein</h2>
-    <p>${match.description}</p>
+    <div class="section-title">1. About Protein</div>
+    <div class="result-text">${match.description}</div>
 
-    <h2>Aligned Wildtype-Mutant</h2>
-    <table border="1" cellspacing="0" cellpadding="8">
-      <tr>
-        <th>항목</th><th>수치</th><th>의미</th>
-      </tr>
+    <div class="section-title">2. Aligned Wildtype-Mutant</div>
+    <table class="result-table">
+      <tr><th>항목</th><th>수치</th><th>의미</th></tr>
       <tr>
         <td>비교 대상</td>
         <td>${match.comparison.comparison_target.name}</td>
@@ -81,8 +87,8 @@ function handleSearch() {
       </tr>
     </table>
 
-    <h2>Wildtype-Ligand & Mutant-Ligand</h2>
-    <table border="1" cellspacing="0" cellpadding="8">
+    <div class="section-title">3. Wildtype-Ligand & Mutant-Ligand</div>
+    <table class="result-table">
       <tr>
         <th>측정 항목</th>
         <th>야생형</th>
@@ -105,7 +111,7 @@ function handleSearch() {
   `;
 }
 
-// 이벤트 연결
+/* 이벤트 */
 button.addEventListener("click", handleSearch);
 input.addEventListener("keydown", e => {
   if (e.key === "Enter") handleSearch();
