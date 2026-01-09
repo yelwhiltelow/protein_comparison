@@ -1,38 +1,110 @@
 [
-    {
-      "name": "DNA Gyrase",
-      "description": "DNA Gyrase는 ATP를 에너지원으로 사용하여 DNA에 음성 초나선(negative supercoiling)을 도입하는 세균 특이적 효소이다. DNA는 세포 내에 저장되기 위해 강하게 꼬여 있는데, 이러한 위상학적 상태는 복제와 전사가 일어날 때 물리적 장애가 된다. DNA Gyrase가 만들어내는 음성 초나선은 DNA를 상대적으로 느슨한 상태로 유지하여 이중 가닥이 쉽게 풀리도록 하며, 그 결과 DNA 복제와 전사가 원활하게 진행될 수 있다. 특히 세균은 매우 응축된 DNA를 가지므로, DNA Gyrase의 기능은 생존과 증식에 필수적이다. 또한 DNA Gyrase는 단순히 꼬임을 완화하는 다른 토포아이소머레이즈와 달리, 에너지를 소비해 새로운 꼬임을 적극적으로 도입한다는 점에서 독특하다. 이러한 이유로 DNA Gyrase는 세균의 유전자 발현과 증식의 기반을 제공하며, 병원성 세균이 숙주 내에서 질병을 유발하는 과정에도 간접적으로 관여하는 중요한 단백질이다.",
-  
-      "comparison": {
-        "comparison_target": {
-          "name": "380 vs 804",
-          "description": "작은 단백질을 큰 단백질 구조에 맞춘 것"
-        },
-        "alignment_score": {
-          "value": "553",
-          "description": "매우 높은 점수로 두 대상이 서열이나 구성 면에서 확실한 연관성이 있음"
-        },
-        "aligned_atom_count": {
-          "value": "1546개",
-          "description": "꽤 많은 양의 원자가 서로 대응됨"
-        },
-        "rmsd": {
-          "value": "19.605 Å",
-          "description": "매우 높은 오차로 평균 거리가 약 20옹스트롬"
-        }
+  {
+    "name": "DNA Gyrase",
+    "description": "DNA Gyrase는 ATP를 에너지원으로 사용하여 DNA에 음성 초나선(negative supercoiling)을 도입하는 세균 특이적 효소이다. DNA는 세포 내에 저장되기 위해 강하게 꼬여 있는데, 이러한 위상학적 상태는 복제와 전사가 일어날 때 물리적 장애가 된다. DNA Gyrase가 만들어내는 음성 초나선은 DNA를 상대적으로 느슨한 상태로 유지하여 이중 가닥이 쉽게 풀리도록 하며, 그 결과 DNA 복제와 전사가 원활하게 진행될 수 있다. 특히 세균은 매우 응축된 DNA를 가지므로, DNA Gyrase의 기능은 생존과 증식에 필수적이다. 또한 DNA Gyrase는 단순히 꼬임을 완화하는 다른 토포아이소머레이즈와 달리, 에너지를 소비해 새로운 꼬임을 적극적으로 도입한다는 점에서 독특하다. 이러한 이유로 DNA Gyrase는 세균의 유전자 발현과 증식의 기반을 제공하며, 병원성 세균이 숙주 내에서 질병을 유발하는 과정에도 간접적으로 관여하는 중요한 단백질이다.",
+
+    "comparison": {
+      "comparison_target": {
+        "name": "380 vs 804",
+        "description": "작은 단백질을 큰 단백질 구조에 맞춘 것"
       },
-  
-      "binding_analysis": {
-        "binding_affinity": {
-          "wild_type": "-7.7 kcal/mol",
-          "mutant": "-10.7 kcal/mol",
-          "change": "-3.0 kcal/mol 증가"
-        },
-        "ki": {
-          "wild_type": "2.27 μM",
-          "mutant": "14.35 nM",
-          "change": "약 158배 감소"
-        }
+      "alignment_score": {
+        "value": "553",
+        "description": "매우 높은 점수로 두 대상이 서열이나 구성 면에서 확실한 연관성이 있음"
+      },
+      "aligned_atom_count": {
+        "value": "1546개",
+        "description": "꽤 많은 양의 원자가 서로 대응됨"
+      },
+      "rmsd": {
+        "value": "19.605 Å",
+        "description": "매우 높은 오차로 평균 거리가 약 20옹스트롬"
+      }
+    },
+
+    "binding_analysis": {
+      "binding_affinity": {
+        "wild_type": "-7.7 kcal/mol",
+        "mutant": "-10.7 kcal/mol",
+        "change": "-3.0 kcal/mol 증가"
+      },
+      "ki": {
+        "wild_type": "2.27 μM",
+        "mutant": "14.35 nM",
+        "change": "약 158배 감소"
       }
     }
-  ]
+  },
+  {
+    "name": "Histone Deacetylase",
+    "description": "Histone Deacetylase (HDAC)는 에피제네틱 조절인자로, DNA에 결합한 히스톤 단백질에서 아세틸기를 제거하여 염색질을 더욱 조밀하게 만들어 유전자 발현을 억제한다. 이 단백질이 기능하게 되면 특정 유전자의 전사가 감소하거나 세포 기능이 변하게 된다. HDAC의 정상적인 기능은 세포 분화, DNA 손상 반응, 염증 조절과 같은 여러 세포 과정에 중요하지만 조절 이상이 여러 질병을 유발한다.",
+  
+    "comparison": {
+      "comparison_target": {
+        "name": "2047 vs 369",
+        "description": "매우 큰 단백질과 작은 단백질을 비교하였으며, 전체 길이가 아닌 공통 구조 도메인 중심의 정렬이 수행됨"
+      },
+      "alignment_score": {
+        "value": "1961",
+        "description": "잔기 수 차이가 큼에도 불구하고 매우 높은 점수로, 우연이 아닌 강한 구조적 연관성을 의미"
+      },
+      "aligned_atom_count": {
+        "value": "2309개",
+        "description": "반복적인 RMSD 최적화 후에도 많은 원자가 유지되어, 안정적인 핵심 구조가 존재함을 시사"
+      },
+      "rmsd": {
+        "value": "0.273 Å",
+        "description": "2309개의 원자를 겹쳤을 때 평균 거리 차이가 0.3 Å 이하로, 거의 동일한 3차 구조 수준의 매우 높은 구조적 유사성을 의미"
+      }
+    },
+  
+    "binding_analysis": {
+      "binding_affinity": {
+        "wild_type": "−6.76 kcal/mol (Binding Site 1)",
+        "mutant": "−6.00 kcal/mol (Binding Site 3)",
+        "change": "+0.76 kcal/mol 증가 (결합력 감소)"
+      },
+      "ki": {
+        "wild_type": "11.09 μM (Binding Site 1)",
+        "mutant": "39.99 μM (Binding Site 3)",
+        "change": "약 3.6배 증가 (결합력 감소)"
+      }
+    }
+  },
+  {
+    "name": "Adenosine Deaminase",
+    "description": "살모넬라균 유래 단백질인 Adenosine Deaminase는 균이 생존하는 데 필수적인 대사 촉매이다. 세균은 주변에 있는 아데노신을 흡수해 이노신으로 변환시켜 유전 물질의 원료로 재활용하며, 이 단백질은 해당 반응을 수천 배 이상 가속한다. 단백질 내부의 아연(Zn) 이온은 기질을 안정적으로 결합시켜 화학 반응이 효율적으로 일어나도록 돕는다. 이 단백질이 손상되면 살모넬라균은 증식이 불가능해진다.",
+  
+    "comparison": {
+      "comparison_target": {
+        "name": "542 vs 341",
+        "description": "정상(Wild-type) 단백질과 돌연변이(Mutant) 단백질의 잔기 수 비교"
+      },
+      "alignment_score": {
+        "value": "1660.000",
+        "description": "매우 높은 정렬 점수로, 두 단백질 구조가 서열 및 전체적인 형태 면에서 극도로 높은 유사성을 보임"
+      },
+      "aligned_atom_count": {
+        "value": "1977개",
+        "description": "총 2525개의 원자 중 5단계를 거쳐 최종적으로 1977개의 원자가 서로 일치한다고 판단됨"
+      },
+      "rmsd": {
+        "value": "0.194 Å",
+        "description": "매우 낮은 수치로, 두 구조를 겹쳤을 때 원자 간 거리가 거의 일치함을 의미함. 주로 2.0 Å 이하를 우수한 정렬로 봄"
+      }
+    },
+  
+    "binding_analysis": {
+      "binding_affinity": {
+        "wild_type": "-8.6 kcal/mol (Binding Site 4)",
+        "mutant": "-7.8 kcal/mol (Binding Site 1)",
+        "change": "+0.8 kcal/mol 감소 (결합력 약화)"
+      },
+      "ki": {
+        "wild_type": "496.78 nM (Binding Site 4)",
+        "mutant": "1.92 μM (Binding Site 1)",
+        "change": "약 3.86배 증가 (결합력 약화)"
+      }
+    }
+  }
+]
