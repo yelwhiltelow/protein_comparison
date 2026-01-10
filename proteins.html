@@ -4,46 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proteins</title>
+
+  <link rel="stylesheet" href="common.css" />
   <link rel="stylesheet" href="proteins.css" />
 </head>
 <body>
 
-  <div class="page">
-
-    <!-- 상단 버튼 영역 -->
-    <div class="top-bar" id="topBar">
-      <div class="top-item">
-        <div class="logo"></div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <img src="logo.png" alt="logo" class="logo-image" />
       </div>
-      <div class="top-item">
-        <a class="top-button active" href="proteins.html">Proteins</a>
-      </div>
-      <div class="top-item">
-        <a class="top-button" href="reference.html">Reference Source</a>
-      </div>
-      <div class="top-item">
-        <a class="top-button" href="guides.html">Guides</a>
-      </div>
+      <nav class="header-nav">
+        <a href="proteins.html" class="nav-item active">Proteins</a>
+        <a href="reference.html" class="nav-item">Reference Source</a>
+        <a href="guides.html" class="nav-item">Guides</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- 검색 영역 (중앙 정렬 기준 wrapper 포함) -->
-    <div class="main" id="mainArea">
-      <div class="search-wrapper" id="searchWrapper">
-        <div class="search-container" id="searchBox">
-          <input
-            type="text"
-            class="search-input"
-            id="searchInput"
-            placeholder="검색어를 입력하세요"
-          />
-          <button class="search-button" id="searchButton">
-            검색
-          </button>
+  <!-- Hero (배경 없음, 레이아웃만 담당) -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+
+      <!-- 왼쪽 이미지 -->
+      <div class="hero-left">
+        <img src="center.png" alt="center illustration" class="hero-image" />
+      </div>
+
+      <!-- 검색 -->
+      <div class="hero-right">
+        <div class="search-wrapper">
+          <div class="search-pill">
+            <span class="icon search-icon" id="searchIcon">🔍</span>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input-pill"
+              placeholder="Search protein..."
+            />
+            <span class="icon clear-icon" id="clearIcon">✕</span>
+          </div>
+          <div class="no-result" id="noResult" style="display:none;">
+            일치하는 단백질 정보가 없습니다
+          </div>
         </div>
       </div>
-    </div>
 
-  </div>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <main class="result-section" id="mainArea"></main>
 
   <script src="script.js"></script>
 </body>

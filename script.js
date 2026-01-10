@@ -1,70 +1,76 @@
+/*************************************************
+ * DOM 요소
+ *************************************************/
 const input = document.getElementById("searchInput");
-const button = document.getElementById("searchButton");
-const searchWrapper = document.getElementById("searchWrapper");
-const searchBox = document.getElementById("searchBox");
-const topBar = document.getElementById("topBar");
+const searchIcon = document.getElementById("searchIcon");
+const clearIcon = document.getElementById("clearIcon");
+const noResult = document.getElementById("noResult");
 const mainArea = document.getElementById("mainArea");
+const hero = document.getElementById("hero");
 
-/* 결과 영역 (성공 시만 사용) */
-const resultArea = document.createElement("div");
-resultArea.id = "resultArea";
-mainArea.appendChild(resultArea);
-
-/* 검색 실패 메시지 (검색창 아래 고정) */
-const noResultMsg = document.createElement("div");
-noResultMsg.className = "no-result";
-noResultMsg.textContent = "일치하는 단백질 정보가 없습니다";
-noResultMsg.style.display = "none";
-searchWrapper.appendChild(noResultMsg);
-
+/*************************************************
+ * 데이터 캐시
+ *************************************************/
 let dataCache = [];
 
-/* JSON 로드 */
+/*************************************************
+ * data.json 로드
+ *************************************************/
 fetch("data.json")
   .then(res => res.json())
   .then(data => {
     dataCache = Array.isArray(data) ? data : [data];
+  })
+  .catch(err => {
+    console.error("data.json 로드 실패", err);
   });
 
-function resetToCenter() {
-  mainArea.appendChild(searchWrapper);
-  searchBox.classList.remove("search--attached");
-  resultArea.innerHTML = "";
-  noResultMsg.style.display = "none";
+/*************************************************
+ * 결과 초기화
+ *************************************************/
+function clearResult() {
+  mainArea.innerHTML = "";
+  noResult.style.display = "none";
+  hero.classList.remove("hero--collapsed");
 }
 
+/*************************************************
+ * 검색 처리
+ *************************************************/
 function handleSearch() {
   const keyword = input.value.trim();
 
-  /* 빈 입력 */
-  if (keyword === "") {
-    resetToCenter();
-    return;
-  }
+  clearResult();
+
+  // 입력 비었을 때 → 중앙 상태 유지
+  if (!keyword) return;
 
   const match = dataCache.find(
     item => item.name.toLowerCase() === keyword.toLowerCase()
   );
 
-  /* ❌ 검색 실패 */
+  // ❌ 검색 실패
   if (!match) {
-    resetToCenter();
-    noResultMsg.style.display = "block";
+    noResult.style.display = "block";
     return;
   }
 
-  /* ✅ 검색 성공 */
-  noResultMsg.style.display = "none";
-  topBar.after(searchWrapper);
-  searchBox.classList.add("search--attached");
+  // ✅ 검색 성공
+  hero.classList.add("hero--collapsed");
 
-  resultArea.innerHTML = `
+  mainArea.innerHTML = `
     <div class="section-title">1. About Protein</div>
-    <div class="result-text">${match.description}</div>
+    <div class="result-text">
+      ${match.description}
+    </div>
 
     <div class="section-title">2. Aligned Wildtype-Mutant</div>
     <table class="result-table">
-      <tr><th>항목</th><th>수치</th><th>의미</th></tr>
+      <tr>
+        <th>항목</th>
+        <th>수치</th>
+        <th>의미</th>
+      </tr>
       <tr>
         <td>비교 대상</td>
         <td>${match.comparison.comparison_target.name}</td>
@@ -111,8 +117,17 @@ function handleSearch() {
   `;
 }
 
-/* 이벤트 */
-button.addEventListener("click", handleSearch);
+/*************************************************
+ * 이벤트 바인딩
+ *************************************************/
+searchIcon.addEventListener("click", handleSearch);
+
 input.addEventListener("keydown", e => {
   if (e.key === "Enter") handleSearch();
+});
+
+clearIcon.addEventListener("click", () => {
+  input.value = "";
+  clearResult();
+  input.focus();
 });

@@ -60,8 +60,8 @@
   
     "binding_analysis": {
       "binding_affinity": {
-        "wild_type": "−6.76 kcal/mol (Binding Site 1)",
-        "mutant": "−6.00 kcal/mol (Binding Site 3)",
+        "wild_type": "-6.76 kcal/mol (Binding Site 1)",
+        "mutant": "-6.00 kcal/mol (Binding Site 3)",
         "change": "+0.76 kcal/mol 증가 (결합력 감소)"
       },
       "ki": {
