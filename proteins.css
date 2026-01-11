@@ -1,17 +1,15 @@
 @import url("common.css");
 
-/* ================= 전체 고정 배경 ================= */
-
+/* ===== 고정 배경 ===== */
 body {
+  margin: 0;
   background-image: url("background.png");
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* 🔥 핵심 */
+  background-attachment: fixed;
 }
 
-/* ================= Header ================= */
-
+/* ===== Header ===== */
 .header {
   background-color: #8fa1ad;
   height: 96px;
@@ -21,16 +19,16 @@ body {
 
 .header-inner {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 48px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo-image {
-  height: 80px;
+  height: 72px;
 }
 
 .header-nav {
@@ -49,34 +47,29 @@ body {
   text-decoration: underline;
 }
 
-/* ================= Hero (배경 제거됨) ================= */
-
+/* ===== Hero ===== */
 .hero {
   min-height: calc(100vh - 96px);
   display: flex;
   align-items: center;
 }
 
-/* Hero 내부 레이아웃 */
 .hero-inner {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
-  width: 100%;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-items: center;
 }
 
 .hero-image {
-  max-width: 520px;
   width: 100%;
+  max-width: 520px;
 }
 
-/* ================= Search ================= */
-
+/* ===== Search ===== */
 .search-wrapper {
   display: flex;
   flex-direction: column;
@@ -90,7 +83,6 @@ body {
   align-items: center;
   gap: 10px;
   padding: 0 14px;
-
   border: 1.5px solid #888;
   border-radius: 999px;
   background: #fff;
@@ -104,9 +96,8 @@ body {
   font-size: 15px;
 }
 
-.search-pill .icon {
+.icon {
   cursor: pointer;
-  user-select: none;
 }
 
 .clear-icon {
@@ -124,12 +115,11 @@ body {
   text-align: center;
 }
 
-/* ================= 검색 성공 상태 ================= */
-
+/* ===== 검색 성공 상태 ===== */
 .hero--collapsed {
-  min-height: calc(100vh - 96px);
-  align-items: flex-start;
+  min-height: auto;              /* ✅ 공백 제거 핵심 */
   padding-top: 24px;
+  padding-bottom: 32px;
 }
 
 .hero--collapsed .hero-inner {
@@ -140,17 +130,15 @@ body {
   display: none;
 }
 
-/* ================= Result ================= */
-
+/* ===== Result ===== */
 .result-section {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 48px 40px;
-
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 14px;
+  display: none;
+  max-width: 960px;              /* ✅ 결과 폭 제한 */
+  margin: 0 auto 120px;
+  padding: 0 32px;
 }
 
+/* ===== 기존 결과 글 스타일 (유지) ===== */
 .section-title {
   font-size: 22px;
   font-weight: bold;
@@ -159,6 +147,7 @@ body {
 
 .result-text {
   line-height: 1.7;
+  text-align: left;
 }
 
 .result-table {
